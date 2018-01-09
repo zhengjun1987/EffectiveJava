@@ -8,4 +8,7 @@ package chapter02;
  */
 public interface Service {
     void test();
+    default void sayHello(){
+        System.out.println(MyUtils.getCurrentTime() + "Service.sayHello  " + "");
+    }
 }
