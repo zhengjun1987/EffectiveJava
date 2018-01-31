@@ -1,6 +1,7 @@
 package chapter03;
 
 import chapter02.MyUtils;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
@@ -9,7 +10,7 @@ import java.util.HashMap;
  * Mail:zhengjun1987@outlook.com
  * Date: 2018/1/30 11:27
  */
-public class PhoneNumber {
+public class PhoneNumber implements Comparable<PhoneNumber> {
     private final short mAreaCode;
     private final short mPrefix;
     private final short mLineNumber;
@@ -54,6 +55,28 @@ public class PhoneNumber {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return "PhoneNumber{" +
+                "mAreaCode=" + mAreaCode +
+                ", mPrefix=" + mPrefix +
+                ", mLineNumber=" + mLineNumber +
+                ", mHashCode=" + mHashCode +
+                '}';
+    }
+
+
+    @Override
+    public PhoneNumber clone() {
+        PhoneNumber clone = null;
+        try {
+            clone = (PhoneNumber) super.clone();
+        } catch (CloneNotSupportedException argE) {
+            argE.printStackTrace();
+        }
+        return clone;
+    }
+
     public static void main(String[] args) {
         HashMap<PhoneNumber, String> numberStringHashMap = new HashMap<>();
         PhoneNumber key = new PhoneNumber(707, 867, 5309);
@@ -63,13 +86,16 @@ public class PhoneNumber {
     }
 
     @Override
-    public String toString() {
-        return "PhoneNumber{" +
-                "mAreaCode=" + mAreaCode +
-                ", mPrefix=" + mPrefix +
-                ", mLineNumber=" + mLineNumber +
-                ", mHashCode=" + mHashCode +
-                '}';
+    public int compareTo(@NotNull PhoneNumber o) {
+        int i = mAreaCode - o.mAreaCode;
+        if (i != 0) {
+            return i;
+        }
+        int j = mPrefix - o.mPrefix;
+        if (j != 0) {
+            return j;
+        }
+        return mLineNumber - o.mLineNumber;
     }
 }
 //2018-1-30 14:58:18版本(只覆盖了equals方法,没有覆盖hashCode方法)
