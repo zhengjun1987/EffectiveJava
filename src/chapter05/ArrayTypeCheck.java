@@ -2,7 +2,9 @@ package chapter05;
 
 import chapter02.MyUtils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Author: Zheng Jun
@@ -11,6 +13,8 @@ import java.util.Arrays;
  */
 public class ArrayTypeCheck {
     public static void main(String[] args) {
+//        List<Intger> objects = new ArrayList<Integer>();
+//        objects.add(new Float(0.2f));
         Object[] arr = new Integer[10];
         arr[0] = 2.1f;//可以通过编译,但运行时会出错ArrayStoreException
         System.out.println(MyUtils.getCurrentTime() + "Arrays.toString(arr) = " + Arrays.toString(arr));//运行时类型检查
