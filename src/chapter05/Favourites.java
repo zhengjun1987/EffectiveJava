@@ -1,6 +1,12 @@
 package chapter05;
 
+import chapter02.MyUtils;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Author: Zheng Jun
@@ -34,9 +40,15 @@ public class Favourites {
         favourites.putFavourite(Class.class,favourites.getClass());
         System.out.printf("%s %x %s\n",
                 favourites.getFavourite(String.class),
-                favourites.getFavourite(int.class),
+                favourites.getFavourite(Integer.class),
                 favourites.getFavourite(Class.class).getSimpleName()
                 );
+
+        Class<? super List<String>> rawType = new TypeToken<List<String>>() {
+        }.getRawType();
+        favourites.putFavourite(rawType,new ArrayList<>(Arrays.asList("Alberta","Bridge")));
+        System.out.println(MyUtils.getCurrentTime() + "favourites = " + favourites.getFavourite(rawType));
+        //favourites = [Alberta, Bridge]
     }
 }
 //    Java cafebabe Favourites
