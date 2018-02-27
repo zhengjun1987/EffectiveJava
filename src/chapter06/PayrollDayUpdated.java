@@ -1,5 +1,7 @@
 package chapter06;
 
+import chapter02.MyUtils;
+
 /**
  * Author: Zheng Jun
  * Mail:zhengjun1987@outlook.com
@@ -19,12 +21,14 @@ public enum PayrollDayUpdated {
         WORKDAY {
             @Override
             double overtimePay(double workedHours, double payRate) {
+                System.out.println(MyUtils.getCurrentTime() + "WorkDay.WORKDAY.overtimePay  " + "workedHours = [" + workedHours + "], payRate = [" + payRate + "]");
                 return workedHours <= HOURS_PER_SHIFT ? 0 : (workedHours - HOURS_PER_SHIFT) * payRate / 2;
             }
         },
         WEEKEND {
             @Override
             double overtimePay(double workedHours, double payRate) {
+                System.out.println(MyUtils.getCurrentTime() + "WorkDay.WEEKEND.overtimePay  " + "workedHours = [" + workedHours + "], payRate = [" + payRate + "]");
                 return workedHours * payRate / 2;
             }
         };
@@ -32,7 +36,7 @@ public enum PayrollDayUpdated {
         abstract double overtimePay(double workedHours, double payRate);
     }
 
-    private WorkDay mWorkDay;
+    private final WorkDay mWorkDay;
 
     PayrollDayUpdated(WorkDay argWorkDay) {
         mWorkDay = argWorkDay;
