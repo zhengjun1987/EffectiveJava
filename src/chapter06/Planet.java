@@ -28,6 +28,15 @@ public enum Planet {
         surfaceGravity = G * mass / (radius * radius);
     }
 
+    @Override
+    public String toString() {
+        return "Planet{" +
+                "mass=" + mass +
+                ", radius=" + radius +
+                ", surfaceGravity=" + surfaceGravity +
+                '}';
+    }
+
     public double getMass() {
         return mass;
     }

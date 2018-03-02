@@ -19,9 +19,9 @@ public class Bigram {
         second = argSecond;
     }
 
-//    @Override
+    //    @Override
     public boolean equals(Bigram obj) {
-        return first==obj.first && second==obj.second;
+        return first == obj.first && second == obj.second;
     }
 
 //    @Override
@@ -45,7 +45,7 @@ public class Bigram {
         Set<Bigram> bigrams = new HashSet<>();
         for (int i = 0; i < 10; i++) {
             for (char c = 'a'; c <= 'z'; c++) {
-                bigrams.add(new Bigram(c,c));
+                bigrams.add(new Bigram(c, c));
             }
         }
         System.out.println(MyUtils.getCurrentTime() + "bigrams.size() = " + bigrams.size());

@@ -12,11 +12,13 @@ public class Period {
     private final Date end;
 
     /**
-     * @author Zheng Jun
+     * 本类的构造方法
+     * <p>需要两个参数,一个开始时间一个结束时间,都是Date类.</p>
      * @param argStart 开始时间
-     * @param argEnd 结束时间
-     * @throws NullPointerException 参数不得为空
-     * @throws IllegalArgumentException 开始时间不得大于结束时间
+     * @param argEnd   结束时间
+     * @throws NullPointerException     参数不得为空
+     * @throws IllegalArgumentException 开始时间不得大于结束时间({@code start.compareTo(end)>0})
+     * @author Zheng Jun
      */
     public Period(Date argStart, Date argEnd) {
         if (argStart == null) {
@@ -33,24 +35,23 @@ public class Period {
 //        end = (Date) argEnd.clone();  对于参数类型可以被不受信任方子类化的参数,不要使用clone方法进行保护性拷贝
         end = new Date(argEnd.getTime());
 
-        if (start.compareTo(end)>0) {
-            throw new IllegalArgumentException(argStart +" After "+argEnd);
+        if (start.compareTo(end) > 0) {
+            throw new IllegalArgumentException(argStart + " After " + argEnd);
         }
     }
 
     /**
+     * @return 成员变量的保护性拷贝
      * @author Zheng Jun
      * @see "NullTest"
-     * @return 成员变量的保护性拷贝
      */
     public Date getStart() {
         return new Date(start.getTime());
     }
 
     /**
-     * @author Zheng Jun
-     * @throws  Exception
      * @return 成员变量的保护性拷贝
+     * @author Zheng Jun
      */
     public Date getEnd() {
         return (Date) end.clone();

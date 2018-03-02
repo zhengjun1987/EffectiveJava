@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
  */
 
 /**
- * @apiNote Use only on parameterless static methods
+ *  Use only on parameterless static methods
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

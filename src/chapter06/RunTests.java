@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
  */
 public class RunTests {
     public static void main(String[] args) throws ClassNotFoundException {
-        int tests = 0,passes=0;
+        int tests = 0, passes = 0;
         Class<?> aClass = Class.forName("chapter06.Sample");
         for (Method method : aClass.getDeclaredMethods()) {
             if (method.isAnnotationPresent(Test.class)) {
@@ -27,7 +27,7 @@ public class RunTests {
                 }
             }
         }
-        System.out.printf("PASSED: %d ,Failed: %d%n",passes,tests-passes);
+        System.out.printf("PASSED: %d ,Failed: %d%n", passes, tests - passes);
     }
 }
 //        Sample.m7

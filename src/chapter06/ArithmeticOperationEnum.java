@@ -5,23 +5,26 @@ package chapter06;
  * Mail:zhengjun1987@outlook.com
  * Date: 2018/2/27 10:09
  */
-public enum ArithmeticOperationEnum implements ArithmeticOperation{
+public enum ArithmeticOperationEnum implements ArithmeticOperation {
     PLUS("+") {
         @Override
         public double apply(double x, double y) {
             return x + y;
         }
-    }, MINUS("-") {
+    },
+    MINUS("-") {
         @Override
         public double apply(double x, double y) {
             return x - y;
         }
-    }, TIMES("*") {
+    },
+    TIMES("*") {
         @Override
         public double apply(double x, double y) {
             return x * y;
         }
-    }, DIVIDE("/") {
+    },
+    DIVIDE("/") {
         @Override
         public double apply(double x, double y) {
             return x / y;
