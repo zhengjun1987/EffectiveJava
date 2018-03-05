@@ -13,4 +13,12 @@ public class Card {
         mSuit = argSuit;
         mRank = argRank;
     }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "mSuit=" + mSuit +
+                ", mRank=" + mRank +
+                '}';
+    }
 }
