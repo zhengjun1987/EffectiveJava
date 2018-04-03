@@ -1,5 +1,6 @@
 package chapter02;
 
+
 import org.jetbrains.annotations.Contract;
 
 import java.io.Serializable;

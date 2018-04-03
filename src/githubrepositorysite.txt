@@ -1,1 +1,8 @@
 https://github.com/zhengjun1987hz/EffectiveJava.git
+
+
+统计代码行数
+find . -name "*.java"|xargs cat|grep -v -e ^$ -e ^\s*\/\/.*$|wc -l
+find . -name "*.java"|xargs cat|grep -v ^$|wc -l
+
+2018年03月09日00:02:32     3197    2908
